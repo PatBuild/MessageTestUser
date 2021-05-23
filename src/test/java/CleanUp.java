@@ -1,5 +1,6 @@
 import frameWork.Constants;
 import frameWork.MessageActions;
+import frameWork.UserActions;
 import frameWork.objects.Message;
 import org.apache.commons.lang3.StringUtils;
 import org.testng.Assert;
@@ -13,11 +14,14 @@ public class CleanUp extends BaseTest {
 
     String testId =Constants.testID+"mft_";
 
-    @Test
+    @Test(enabled = false)
     public void _clear_messages() {
        MessageActions.deleteMessage(MessageActions.getMessages("PSFC_mft_un1_3","PSFC_mft_un2_3"));
     }
 
-
+    @Test(enabled = false)
+    public void _clear_Users() {
+        UserActions.deleteUsers(UserActions.getUsers());
+   }
 
 }

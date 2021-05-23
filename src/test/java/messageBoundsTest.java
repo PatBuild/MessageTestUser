@@ -31,12 +31,12 @@ public class messageBoundsTest extends BaseTest {
         String user1 = testId + "un1_" + testNumber, user2 = testId + "un2_" + testNumber;
         //check max userIDSize
         Message returnedMessage;
-        for (int i =10; i<3000000;i+=1000 ){
+        for (int i =10; i<3000;i+=100 ){
             try {
                 messagesCreated.add(MessageActions.sendMessage(StringUtils.repeat('a', i), user2, "test message"));
 
             }catch(AssertionError assertionError){
-                        printR("Bounds of user name found "+i);     //103010
+                        printR("Bounds of user name found "+i);     //~103010
                         break;
                 }
 
