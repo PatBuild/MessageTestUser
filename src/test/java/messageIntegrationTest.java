@@ -33,6 +33,7 @@ public class messageIntegrationTest extends  BaseTest{
         String user1a = testId + "un1_" + testNumber, user2a = testId + "un2_" + testNumber;
         String user1b = testId + "un1_" + testNumber, user2b = testId + "un2_" + testNumber;
         List<User> userCreated = UserActions.createUsers(user1a, user2a);
+        usersCreated.addAll(userCreated);
         String restPostStringA = MessageActions.getCreateMessageParameters(userCreated.get(0).getId(), userCreated.get(1).getId(), "test message");
         String restPostStringB = MessageActions.getCreateMessageParameters(user1b, user2b, "test message");
 

@@ -45,9 +45,9 @@ public class messageErrorResponseTest extends  BaseTest{
         request.body(restString+"}");
         Response response = request.post();
         String responseBody = response.getBody().asString();
-           printB("sendMessage response:" + responseBody);
-          printR(" statusCode:" + response.statusCode());
-        response.then().statusCode(500);
+        //   printB("sendMessage response:" + responseBody);
+        //  printR(" statusCode:" + response.statusCode());
+        response.then().statusCode(400);   //FIXME response is 500 should be 400 bad request
         Assert.assertTrue(responseBody.contains("entity.parse.failed"));
     }
 
@@ -62,13 +62,10 @@ public class messageErrorResponseTest extends  BaseTest{
         Message sentMessage = MessageActions.sendMessage(user1, user2, "test message");
         messagesCreated.add(sentMessage);
         printB("message created " + sentMessage.toString());
-
         Response response= given().request().get("This is not a Corrrect message ID");
         String responseBody = response.getBody().asString();
         response.then().statusCode(404);
-
     }
-
 
 
 }

@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite of all functional tests">
 
+    <parameter name ="LoopCountParameter" value="100"/>             <!--passed in parameter example only leads to Performance test-->
 
     <test thread-count="10" name="Functional tests">
         <classes>
@@ -13,6 +14,5 @@
 
         </classes>
     </test> <!-- Test -->
-
 
 </suite> <!-- Suite -->

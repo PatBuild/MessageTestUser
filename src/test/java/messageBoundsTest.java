@@ -3,6 +3,7 @@ import frameWork.MessageActions;
 import frameWork.UserActions;
 import frameWork.objects.Message;
 import frameWork.objects.User;
+import frameWork.objects.json;
 import io.restassured.RestAssured;
 import org.apache.commons.lang3.StringUtils;
 import org.testng.Assert;
@@ -17,22 +18,23 @@ import static frameWork.Logger.printR;
 
 /**
  * Created PMG 05-2021
- *  General functionality of the PSCamp message API
+ *  Testing bounds/Fuzz test of the PSCamp message API
  */
 public class messageBoundsTest extends BaseTest {
 
-
+    String testId =Constants.testID+"mbt_";
 
     @Test
     public void _001_checkBoundsOfCreate() {
 
         int testNumber=1;
-        String user1="username1 "+testNumber,user2="username2 "+testNumber;
+        String user1 = testId + "un1_" + testNumber, user2 = testId + "un2_" + testNumber;
         //check max userIDSize
         Message returnedMessage;
         for (int i =10; i<3000000;i+=1000 ){
             try {
-                 returnedMessage = MessageActions.sendMessage(StringUtils.repeat('a', i), user2, "test message");
+                messagesCreated.add(MessageActions.sendMessage(StringUtils.repeat('a', i), user2, "test message"));
+
             }catch(AssertionError assertionError){
                         printR("Bounds of user name found "+i);     //103010
                         break;
@@ -44,7 +46,7 @@ public class messageBoundsTest extends BaseTest {
     }
 
 
-    /**
+    /*
      *  function to make sure not allowed chars are handled correctly
      */
 
