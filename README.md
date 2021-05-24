@@ -73,3 +73,4 @@ https://blog.knoldus.com/integrating-rest-assured-with-jenkins-and-allure-report
 ####Performance
 Investigate Locust
 https://www.blazemeter.com/blog/locust-performance-testing-using-java-and-kotlin
+https://aws.amazon.com/blogs/devops/using-locust-on-aws-elastic-beanstalk-for-distributed-load-generation-and-testing/
